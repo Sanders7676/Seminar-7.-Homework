@@ -9,8 +9,8 @@
 
 
 int[,] array = CreateRandom2DArray(3, 4);
-
-
+Console.Write("Средние арифметические по столбцам имеют следующие значения: "
+PrintArray(сolumnArithmeticalMean)
 
 
 
@@ -33,34 +33,11 @@ int[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
 
 
 
-// Метод нахождения сумм ячеек по столбцам в столбце
-
-int GetColumnSums (int[,] array)
-{
-    int sum = 0;
-      
-    int[] columnSums = new int[array.GetLength(1)];
-    
-    
-  
-    for (var j = 0; j < array.GetLength(1); j++)
-    {
-        for (var i = 0; i < array.GetLength(0); i++)
-        {
-            sum = sum + array[i, j];
-            
-        }
-        
-      
-    }
-    return arr; 
-    
-    
 // Метод нахождения среднего арифметического в столбце
 
 int GetArithmeticalMean (int[,] array)
 {
-    int[] arithmeticalMean = new int[array.GetLength(1)];
+    double[] arithmeticalMean = new int[array.GetLength(1)];
     
     for (int a = 0; a < array.GetLength(1); a++)
         
@@ -76,4 +53,13 @@ int GetArithmeticalMean (int[,] array)
          columnArithmeticalMean[a] = sum / array.GetLength(0)
     }
     return columnArithmeticalMean; 
+}
+
+
+
+//Метод печати массива
+
+void PrintArray(var[] array)
+{
+    Console.WriteLine($"({string.Join(" ; ", array)})");
 }
