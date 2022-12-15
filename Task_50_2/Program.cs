@@ -1,4 +1,4 @@
-// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
+﻿// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
 // и возвращает значение этого элемента или же указание, что такого элемента нет.
 
 // Например, задан массив:
@@ -21,11 +21,12 @@ int columnNumber = InputInt();
 
 PrintArray(array);
 
-bool arrayContainsCell = CheckIfCellExistsInArray (rowNumber, columnNumber, array)
+bool arrayContainsCell = CheckIfCellExistsInArray(rowNumber, columnNumber, array);
 
 if (arrayContainsCell == true)
-{    
-    int requiredCellValue = FindRequiredCellValue (int rowNumber, int columnNumber, int[,] array);
+{
+    int requiredCellValue = FindRequiredCellValue(rowNumber, columnNumber, array);
+
     Console.WriteLine($"Интересующая Вас ячейка массива имеет значение {requiredCellValue}.");
 }
 else
@@ -33,14 +34,16 @@ else
     Console.WriteLine("В имеющемся массиве отсутствует ячейка с заданными Вами параметрами");
 }
 
-    
-    
-    
+
+
+
 // Метод генерации массива из случайных чисел
 
 int[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
 {
-    int[,] arr = new int[countOfRows, countOfColumns];
+    Random random = new Random();
+
+    int[,] array = new int[countOfRows, countOfColumns];
 
     for (var i = 0; i < array.GetLength(0); i++)
     {
@@ -49,7 +52,7 @@ int[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
             array[i, j] = random.Next(-10, 11);
         }
     }
-    return arr;
+    return array;
 }
 
 
@@ -59,7 +62,7 @@ int[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
 int InputInt()
 {
     bool isNum = int.TryParse(Console.ReadLine(), out int num);
-    
+
     if (isNum)
     {
         return num;
@@ -75,34 +78,38 @@ int InputInt()
 
 // Метод проверки наличия ячейки в массиве
 
-bool CheckIfCellExistsInArray (int rowNumber, int columnNumber, int[,] array)
+bool CheckIfCellExistsInArray(int rowNumber, int columnNumber, int[,] array)
 {
-    if (rowNumber <= array.GetLength(0) && columnNumber <= array.GetLength(1)
+    if (rowNumber <= array.GetLength(0) && columnNumber <= array.GetLength(1))
     {
         return true;
     }
-    renurn false
+    return false;
 }
 
 
 // Метод выдачи значения требуемой ячейки из массива
 
-int FindRequiredCellValue (int rowNumber, int columnNumber, int[,] array)
+int FindRequiredCellValue(int rowNumber, int columnNumber, int[,] array)
 {
-    int result
-    
     for (var i = 0; i < array.GetLength(0); i++)
     {
         for (var j = 0; j < array.GetLength(1); j++)
         {
+            int result;
+
             if (i == rowNumber - 1 && j == columnNumber - 1)
             {
                 result = array[i, j];
-                //return result;
+                
             }
+            else
+            {
+                result = -1;
+            }
+            return result;
         }
     }
-    return result$
 }
 
 

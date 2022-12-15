@@ -9,7 +9,9 @@
 
 
 int[,] array = CreateRandom2DArray(3, 4);
+
 Console.Write("Средние арифметические по столбцам имеют следующие значения: ");
+
 PrintArray(сolumnArithmeticalMean);
 
 
@@ -19,16 +21,18 @@ PrintArray(сolumnArithmeticalMean);
 
 int[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
 {
-    int[,] arr = new int[countOfRows, countOfColumns];
+    Random random = new Random();
+    
+    int[,] array = new int[countOfRows, countOfColumns];
 
     for (var i = 0; i < array.GetLength(0); i++)
     {
         for (var j = 0; j < array.GetLength(1); j++)
         {
-            arr[i, j] = random.Next(-10, 11);
+            array[i, j] = random.Next(-10, 11);
         }
     }
-    return arr;
+    return array;
 }
 
 
@@ -47,6 +51,7 @@ int GetArithmeticalMean (int[,] array)
          {
             for (var i = 0; i < array.GetLength(0); i++)
             {
+                
                 sum = sum + array[i, j];                     
             }
          }
