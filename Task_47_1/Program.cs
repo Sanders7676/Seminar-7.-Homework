@@ -35,7 +35,7 @@ double[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
         {
             for (var j = 0; j < array.GetLength(1); j++)
             {
-                array[i, j] = Math.Round((random.NextDouble(-9,9; 10), 1);
+                array[i, j] = Math.Round((random.NextDouble(-9.9; 10), 1);
             }
         }
         return array;
