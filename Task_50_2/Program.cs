@@ -1,4 +1,4 @@
-﻿// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
+// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
 // и возвращает значение этого элемента или же указание, что такого элемента нет.
 
 // Например, задан массив:
@@ -12,6 +12,8 @@
 // Если такие i и j есть - вывести элемент на печать
 // Если таких i и j нет, то вывести сообщение, что такого элемента в массиве нет.
 
+
+
 Console.Write("Ведите номер строки на которой расположен интересующий Вас элемент массива:");
 
 int rowNumber = InputInt();
@@ -20,7 +22,7 @@ Console.Write("Ведите номер столбца на которой рас
 
 int columnNumber = InputInt();
 
-double[,] array = CreateRandom2DArray(3, 4);
+int[,] array = CreateRandom2DArray(3, 4);
 
 PrintArray(array);
 
@@ -45,12 +47,39 @@ int InputInt()
 }
 
 
-// Метод 
+// Метод генерации массива из случайных чисел
 
-int[,] CreateRandom2DArray(int rowNumber, int columnNumber)
+int[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
 {
     //Random random = new Random();
     //int[,] array = new int[countOfRows, countOfColumns];
+
+    for (var i = 0; i < array.GetLength(0); i++)
+    {
+        for (var j = 0; j < array.GetLength(1); j++)
+        {
+            if (i == rowNumber && j == columnNumber)
+                
+            array[i, j] = random.Next(-10, 11);
+        }
+    }
+    return array;
+}
+
+
+
+// Метод проверки наличия ячейки в массиве
+
+bool CheckIfCellExistsInArray (int rowNumber, int columnNumber, int[,] array)
+
+
+
+
+// Метод выдачи значения требуемой ячейки из массива
+
+int[,] CreateRandom2DArray(int rowNumber, int columnNumber)
+{
+    int[,] array = new int[countOfRows, countOfColumns];
 
     for (var i = 0; i < array.GetLength(0); i++)
     {
@@ -63,6 +92,10 @@ int[,] CreateRandom2DArray(int rowNumber, int columnNumber)
     }
     return array;
 }
+
+
+
+
 
 
 // Метод печати массива
