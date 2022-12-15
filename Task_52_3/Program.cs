@@ -60,21 +60,20 @@ int GetColumnSums (int[,] array)
 
 int GetArithmeticalMean (int[,] array)
 {
-    int sum = 0;
-      
-    int arithmeticalMean = 0;
-      
     int[] arithmeticalMean = new int[array.GetLength(1)];
     
-    for (var j = 0; j < array.GetLength(1); j++)
-    {
-        for (var i = 0; i < array.GetLength(0); i++)
-        {
-            sum = sum + array[i, j];                     
-        }
-        arithmeticalMean = sum / GetLength(0)
+    for (int a = 0; a < array.GetLength(1); a++)
         
-        arithmeticalMean [i, j];
-      
+         int sum = 0;
+         
+         for (var j = 0; j < array.GetLength(1); j++)
+         {
+            for (var i = 0; i < array.GetLength(0); i++)
+            {
+                sum = sum + array[i, j];                     
+            }
+         }
+         columnArithmeticalMean[a] = sum / array.GetLength(0)
     }
-    return arr; 
+    return columnArithmeticalMean; 
+}
