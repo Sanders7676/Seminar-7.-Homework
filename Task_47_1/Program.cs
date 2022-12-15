@@ -1,4 +1,4 @@
-
+﻿
 //Для чисел с плавающей запятой используется Random.NextDouble(), который возвращает случайное дробное число в интервале [0; 1)
 
 // Так как распределение случайной величины равномерное, то мы можем перевести данный единичный промежуток в любой другой. Пусть вам нужно получить случайное число в промежутке [begin; end), тогда вам необходимо выполнить следующую операцию: RandomObj.NextDouble() * (end - begin) + begin.
@@ -35,7 +35,7 @@ double[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
         {
             for (var j = 0; j < array.GetLength(1); j++)
             {
-                array[i, j] = Math.Round((random.NextDouble(-9.9; 10), 1);
+                array[i, j] = Math.Round(random.NextDouble() * ((10.00 + 9.99) - 9.99), 1);
             }
         }
         return array;

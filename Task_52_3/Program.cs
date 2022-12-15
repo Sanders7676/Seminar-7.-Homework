@@ -9,8 +9,8 @@
 
 
 int[,] array = CreateRandom2DArray(3, 4);
-Console.Write("Средние арифметические по столбцам имеют следующие значения: "
-PrintArray(сolumnArithmeticalMean)
+Console.Write("Средние арифметические по столбцам имеют следующие значения: ");
+PrintArray(сolumnArithmeticalMean);
 
 
 
@@ -50,7 +50,7 @@ int GetArithmeticalMean (int[,] array)
                 sum = sum + array[i, j];                     
             }
          }
-         columnArithmeticalMean[a] = sum / array.GetLength(0)
+         columnArithmeticalMean[a] = sum / array.GetLength(0);
     }
     return columnArithmeticalMean; 
 }
