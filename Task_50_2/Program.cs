@@ -89,17 +89,20 @@ bool CheckIfCellExistsInArray (int rowNumber, int columnNumber, int[,] array)
 
 int FindRequiredCellValue (int rowNumber, int columnNumber, int[,] array)
 {
+    int result
+    
     for (var i = 0; i < array.GetLength(0); i++)
     {
         for (var j = 0; j < array.GetLength(1); j++)
         {
             if (i == rowNumber - 1 && j == columnNumber - 1)
             {
-                int result = array[i, j];
-                return result;
+                result = array[i, j];
+                //return result;
             }
         }
     }
+    return result$
 }
 
 
