@@ -7,12 +7,9 @@
 // 8 4 2 4
 // 17 -> такого числа в массиве нет
 
-// 1. Ввод с консоли двух переменных - номера строки и номера столбца
-// 2. В методе проверка каждого элемента массива на равенство его i и j заданным с консоли значениям.
-// Если такие i и j есть - вывести элемент на печать
-// Если таких i и j нет, то вывести сообщение, что такого элемента в массиве нет.
 
 
+int[,] array = CreateRandom2DArray(3, 4);
 
 Console.Write("Ведите номер строки на которой расположен интересующий Вас элемент массива:");
 
@@ -22,10 +19,38 @@ Console.Write("Ведите номер столбца на которой рас
 
 int columnNumber = InputInt();
 
-int[,] array = CreateRandom2DArray(3, 4);
-
 PrintArray(array);
 
+bool arrayContainsCell = CheckIfCellExistsInArray (rowNumber, columnNumber, array)
+
+if (arrayContainsCell == true)
+{    
+    int requiredCellValue = FindRequiredCellValue (int rowNumber, int columnNumber, int[,] array);
+    Console.WriteLine($"Интересующая Вас ячейка массива имеет значение {requiredCellValue}.");
+}
+else
+{
+    Console.WriteLine("В имеющемся массиве отсутствует ячейка с заданными Вами параметрами");
+}
+
+    
+    
+    
+// Метод генерации массива из случайных чисел
+
+int[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
+{
+    int[,] arr = new int[countOfRows, countOfColumns];
+
+    for (var i = 0; i < array.GetLength(0); i++)
+    {
+        for (var j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = random.Next(-10, 11);
+        }
+    }
+    return arr;
+}
 
 
 
@@ -47,53 +72,35 @@ int InputInt()
 }
 
 
-// Метод генерации массива из случайных чисел
-
-int[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
-{
-    //Random random = new Random();
-    //int[,] array = new int[countOfRows, countOfColumns];
-
-    for (var i = 0; i < array.GetLength(0); i++)
-    {
-        for (var j = 0; j < array.GetLength(1); j++)
-        {
-            if (i == rowNumber && j == columnNumber)
-                
-            array[i, j] = random.Next(-10, 11);
-        }
-    }
-    return array;
-}
-
-
 
 // Метод проверки наличия ячейки в массиве
 
 bool CheckIfCellExistsInArray (int rowNumber, int columnNumber, int[,] array)
-
-
+{
+    if (rowNumber <= array.GetLength(0) && columnNumber <= array.GetLength(1)
+    {
+        return true;
+    }
+    renurn false
+}
 
 
 // Метод выдачи значения требуемой ячейки из массива
 
-int[,] CreateRandom2DArray(int rowNumber, int columnNumber)
+int FindRequiredCellValue (int rowNumber, int columnNumber, int[,] array)
 {
-    int[,] array = new int[countOfRows, countOfColumns];
-
     for (var i = 0; i < array.GetLength(0); i++)
     {
         for (var j = 0; j < array.GetLength(1); j++)
         {
-            if (i == rowNumber && j == columnNumber)
-                
-            //array[i, j] = random.Next(-10, 11);
+            if (i == rowNumber - 1 && j == columnNumber - 1)
+            {
+                int result = array[i, j];
+                return result;
+            }
         }
     }
-    return array;
 }
-
-
 
 
 
