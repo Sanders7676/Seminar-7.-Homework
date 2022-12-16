@@ -35,6 +35,17 @@ else
 }
 
 
+// Исключение по причине отсутствия в массивее ячейки с заданными параметрами
+
+try
+{
+    int checkRequiredCellValue = FindRequiredCellValue(rowNumber, columnNumber, array);
+}
+catch(Exception ex)
+{
+    Console.WriteLine(ex.Message);
+    return;
+}
 
 
 // Метод генерации массива из случайных чисел
@@ -76,6 +87,9 @@ int InputInt()
 
 
 
+// Если будет работать исключение, то можно попробовать отказаться от этого метода (отдельного).
+// Также см. стр. 26-35
+
 // Метод проверки наличия ячейки в массиве
 
 bool CheckIfCellExistsInArray(int rowNumber, int columnNumber, int[,] array)
@@ -101,14 +115,12 @@ int FindRequiredCellValue(int rowNumber, int columnNumber, int[,] array)
             if (i == rowNumber - 1 && j == columnNumber - 1)
             {
                 result = array[i, j];
-                
             }
             else
             {
-                result = -1;
+                throw new Exception("В имеющемся массиве отсутствует ячейка с заданными Вами параметрами.");
             }
-            return result;
-        }
+         }
     }
 }
 
