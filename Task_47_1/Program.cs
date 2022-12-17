@@ -18,9 +18,14 @@
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
 
+Console.WriteLine();
+
 double[,] array = CreateRandom2DArray(3, 4);
 
 PrintArray(array);
+
+Console.WriteLine();
+
 
 
 // Метод формирования массива
