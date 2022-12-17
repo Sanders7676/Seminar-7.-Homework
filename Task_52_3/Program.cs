@@ -8,7 +8,8 @@
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
 
-int[,] array = CreateRandom2DArray(3, 4);
+
+double[,] array = CreateRandom2DArray(3, 4);
 
 Print2DArray(array);
 
@@ -20,14 +21,13 @@ PrintArray(columnArithmeticalMean);
 
 
 
-
 // Метод генерации массива из случайных чисел
 
-int[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
+double[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
 {
     Random random = new Random();
 
-    int[,] array = new int[countOfRows, countOfColumns];
+    double[,] array = new double[countOfRows, countOfColumns];
 
     for (var i = 0; i < array.GetLength(0); i++)
     {
@@ -43,29 +43,23 @@ int[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
 
 // Метод нахождения среднего арифметического в столбце
 
-double[] GetArithmeticalMean(int[,] array)
+double[] GetArithmeticalMean(double[,] array)
 {
     double[] resultArray = new double[array.GetLength(1)];
 
-
     for (int j = 0; j < array.GetLength(1); j++)
     {
-        int sum = 0;
+        double sum = 0;
 
         for (int i = 0; i < array.GetLength(0); i++)
         {
             sum += array[i, j];
         }
-        resultArray[j] = sum / array.GetLength(0);
+        resultArray[j] = Math.Round(sum / array.GetLength(0), 1);
     }
 
     return resultArray;
 }
-
-
-
-
-
 
 
 
@@ -77,9 +71,10 @@ void PrintArray(double[] columnArithmeticalMean)
 }
 
 
+
 // Метод печати двумерного массива
 
-void Print2DArray(int[,] array)
+void Print2DArray(double[,] array)
 {
     for (var i = 0; i < array.GetLength(0); i++)
     {
