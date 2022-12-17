@@ -42,7 +42,7 @@ double[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
     }
 
 
-// Метод печати массива
+// Метод печати двумерного массива
 
 void PrintArray(double[,] array)
 {

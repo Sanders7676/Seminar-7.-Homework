@@ -10,9 +10,13 @@
 
 int[,] array = CreateRandom2DArray(3, 4);
 
+Print2DArray(array);
+
+double[] columnArithmeticalMean = GetArithmeticalMean(array);
+
 Console.Write("Средние арифметические по столбцам имеют следующие значения: ");
 
-PrintArray(сolumnArithmeticalMean);
+PrintArray(columnArithmeticalMean);
 
 
 
@@ -22,14 +26,14 @@ PrintArray(сolumnArithmeticalMean);
 int[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
 {
     Random random = new Random();
-    
+
     int[,] array = new int[countOfRows, countOfColumns];
 
     for (var i = 0; i < array.GetLength(0); i++)
     {
         for (var j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = random.Next(-10, 11);
+            array[i, j] = random.Next(0, 10);
         }
     }
     return array;
@@ -39,32 +43,54 @@ int[,] CreateRandom2DArray(int countOfRows, int countOfColumns)
 
 // Метод нахождения среднего арифметического в столбце
 
-int GetArithmeticalMean (int[,] array)
+double[] GetArithmeticalMean(int[,] array)
 {
-    double[] arithmeticalMean = new int[array.GetLength(1)];
-    
-    for (int a = 0; a < array.GetLength(1); a++)
-        
-         int sum = 0;
-         
-         for (var j = 0; j < array.GetLength(1); j++)
-         {
-            for (var i = 0; i < array.GetLength(0); i++)
-            {
-                
-                sum = sum + array[i, j];                     
-            }
-         }
-         columnArithmeticalMean[a] = sum / array.GetLength(0);
+    double[] resultArray = new double[array.GetLength(1)];
+
+
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        int sum = 0;
+
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            sum += array[i, j];
+        }
+        resultArray[j] = sum / array.GetLength(0);
     }
-    return columnArithmeticalMean; 
+
+    return resultArray;
 }
+
+
+
+
+
 
 
 
 //Метод печати массива
 
-void PrintArray(var[] array)
+void PrintArray(double[] columnArithmeticalMean)
 {
-    Console.WriteLine($"({string.Join(" ; ", array)})");
+    Console.WriteLine($"({string.Join(" ; ", columnArithmeticalMean)})");
 }
+
+
+// Метод печати двумерного массива
+
+void Print2DArray(int[,] array)
+{
+    for (var i = 0; i < array.GetLength(0); i++)
+    {
+        for (var j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+
+
+
