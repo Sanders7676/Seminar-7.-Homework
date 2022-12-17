@@ -9,15 +9,22 @@
 
 
 
+
+Console.WriteLine();
+
 double[,] array = CreateRandom2DArray(3, 4);
 
 Print2DArray(array);
+
+Console.WriteLine();
 
 double[] columnArithmeticalMean = GetArithmeticalMean(array);
 
 Console.Write("Средние арифметические по столбцам имеют следующие значения: ");
 
 PrintArray(columnArithmeticalMean);
+
+Console.WriteLine();
 
 
 

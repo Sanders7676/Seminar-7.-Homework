@@ -10,6 +10,7 @@
 
 
 
+Console.WriteLine();
 
 Console.Write("Ведите номер строки на которой расположен интересующий Вас элемент массива: ");
 
@@ -19,9 +20,13 @@ Console.Write("Ведите номер столбца на которой рас
 
 int columnNumber = InputInt();
 
+Console.WriteLine();
+
 int[,] array = CreateRandom2DArray(5, 8);
 
 Print2DArray(array);
+
+Console.WriteLine();
 
 bool arrayContainsCell = CheckIfCellExistsInArray(rowNumber, columnNumber, array);
 
@@ -37,6 +42,8 @@ else
 {
     Console.WriteLine("В имеющемся массиве отсутствует ячейка с заданными Вами параметрами.");
 }
+
+Console.WriteLine();
 
 
 
